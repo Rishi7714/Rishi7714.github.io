@@ -51,6 +51,14 @@ body.light .service-card:hover{border-color:rgba(0,100,200,.3);}
 body.light .svc-title{color:#0d1e35;}
 body.light .svc-desc{color:#4a6a88;}
 
+/* LIGHT MODE - METHODOLOGY */
+body.light .meth-card{background:#fff;border-color:rgba(0,100,200,.12);}
+body.light .meth-card:hover{border-color:rgba(0,100,200,.3);}
+body.light .meth-num{color:#0066cc;}
+body.light .meth-title{color:#0d1e35;}
+body.light .meth-desc{color:#4a6a88;}
+body.light .meth-connector{background:rgba(0,100,200,.12);}
+
 body.light .tl-card{background:#fff;border-color:rgba(0,100,200,.12);}
 body.light .tl-card:hover{border-color:rgba(0,100,200,.3);}
 body.light .tl-role{color:#0d1e35;}
@@ -161,7 +169,7 @@ body.light #matrixCanvas{opacity:.05;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
 /* STATS */
-.stats-bar{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);background:#080d18;border-top:1px solid rgba(0,200,255,.08);border-bottom:1px solid rgba(0,200,255,.08);transition:background .3s;}
+.stats-bar{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);background:#080d18;border-top:1px solid rgba(0,200,255,.08);border-bottom:1px solid rgba(0,200,255,.08);transition:background .3s;}
 .stat{padding:1.4rem 1rem;text-align:center;}
 .stat-border{border-right:1px solid rgba(0,200,255,.08);}
 .stat-num{display:block;font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:#00ccff;line-height:1;}
@@ -205,6 +213,17 @@ body.light #matrixCanvas{opacity:.05;}
 .svc-title{font-size:1.1rem;color:#eaf2ff;margin-bottom:.8rem;font-weight:600;}
 .svc-desc{font-size:.85rem;color:#8aaabb;line-height:1.7;}
 
+/* METHODOLOGY WORKFLOW */
+.meth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative;}
+.meth-card{background:#0b1120;border:1px solid rgba(0,200,255,.08);border-radius:6px;padding:1.5rem;position:relative;z-index:2;transition:transform .3s, border-color .3s, background .3s;}
+.meth-card:hover{border-color:#00ccff;transform:translateY(-3px);}
+.meth-num{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:rgba(0,204,255,.2);margin-bottom:.5rem;line-height:1;}
+.meth-title{font-size:.95rem;color:#eaf2ff;font-weight:600;margin-bottom:.5rem;}
+.meth-desc{font-size:.8rem;color:#8aaabb;line-height:1.6;}
+@media(min-width:961px){
+  .meth-grid::before{content:'';position:absolute;top:3rem;left:10%;right:10%;height:2px;background:rgba(0,200,255,.1);z-index:1;}
+}
+
 /* TIMELINE */
 .timeline{display:grid;gap:1.6rem;padding-left:2rem;border-left:1px solid rgba(0,200,255,.12);}
 .tl-card{background:#0b1120;border:1px solid rgba(0,200,255,.08);border-radius:0 6px 6px 0;padding:1.5rem 1.6rem;position:relative;transition:border-color .25s,transform .25s,background .3s;}
@@ -231,9 +250,9 @@ body.light #matrixCanvas{opacity:.05;}
 .chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.59rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;border:1px solid;margin-bottom:12px;}
 .chip-live{background:rgba(0,232,122,.09);color:#00e87a;border-color:rgba(0,232,122,.3);}
 .chip-hack{background:rgba(255,187,48,.09);color:#ffbb30;border-color:rgba(255,187,48,.3);}
-.chip-intern{background:rgba(0,204,255,.09);color:#00ccff;border-color:rgba(0,204,255,.3);}
+.chip-intern{background:rgba(0,102,204,.09);color:#00ccff;border-color:rgba(0,102,204,.3);}
 .chip-thm{background:rgba(167,139,250,.09);color:#a78bfa;border-color:rgba(167,139,250,.3);}
-.chip-govt{background:rgba(255,140,0,.09);color:#ff8c00;border-color:rgba(255,140,0,.3);}
+.chip-govt{background:rgba(192,80,0,.09);color:#c05000;border-color:rgba(192,80,0,.3);}
 .chip-trainer{background:rgba(255,80,80,.09);color:#ff5050;border-color:rgba(255,80,80,.3);}
 .tl-bullets{display:grid;gap:6px;}
 .tl-bullet{font-size:.84rem;color:#8aaabb;line-height:1.65;padding-left:14px;border-left:2px solid rgba(0,200,255,.12);position:relative;}
@@ -352,6 +371,8 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
   .stats-bar{grid-template-columns:repeat(2,1fr);}
   .about-grid{grid-template-columns:1fr;}
   .services-grid{grid-template-columns:1fr;}
+  .meth-grid{grid-template-columns:1fr;}
+  .meth-grid::before{display:none;}
   .proj-grid,.certs-grid{grid-template-columns:1fr;}
   .skills-grid,.events-grid{grid-template-columns:1fr 1fr;}
   .contact-grid{grid-template-columns:1fr;}
@@ -363,12 +384,11 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 @media(max-width:600px){
   .skills-grid,.events-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
-  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .stats-bar{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
-
 <canvas id="matrixCanvas"></canvas>
 <div class="bg-grid"></div>
 <div class="orb1"></div>
@@ -385,11 +405,12 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
   <div class="nav-center">
     <a href="#about" class="nav-link">01. About</a>
     <a href="#services" class="nav-link">02. Services</a>
-    <a href="#experience" class="nav-link">03. Experience</a>
-    <a href="#projects" class="nav-link">04. Projects</a>
-    <a href="#skills" class="nav-link">05. Skills</a>
-    <a href="#credentials" class="nav-link">06. Credentials</a>
-    <a href="#contact" class="nav-link">07. Contact</a>
+    <a href="#methodology" class="nav-link">03. Methodology</a>
+    <a href="#experience" class="nav-link">04. Experience</a>
+    <a href="#projects" class="nav-link">05. Projects</a>
+    <a href="#skills" class="nav-link">06. Skills</a>
+    <a href="#credentials" class="nav-link">07. Credentials</a>
+    <a href="#contact" class="nav-link">08. Contact</a>
     <div class="theme-pill">
       <button id="btnDark" class="on" title="Dark">🌙</button>
       <button id="btnLight" title="Light">☀️</button>
@@ -437,8 +458,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 <div class="stats-bar">
   <div class="stat stat-border"><span class="stat-num" id="s1">0</span><span class="stat-label">Certifications</span></div>
   <div class="stat stat-border"><span class="stat-num" id="s2">0</span><span class="stat-label">VAPT Tasks</span></div>
-  <div class="stat stat-border"><span class="stat-num" id="s3">0</span><span class="stat-label">CTF Challenges</span></div>
-  <div class="stat"><span class="stat-num" id="s4">0</span><span class="stat-label">Security Tools Built</span></div>
+  <div class="stat"><span class="stat-num" id="s3">0</span><span class="stat-label">Security Tools Built</span></div>
 </div>
 
 <section class="section section-alt" id="about">
@@ -449,7 +469,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
       <p class="about-p">Hello! I'm Rishabh, a cybersecurity professional based in <strong>Jodhpur, Rajasthan</strong>. I believe the best way to build robust software is to understand exactly how it breaks.</p>
       <p class="about-p">Currently working as a <strong>VAPT Intern and Assistant Captain</strong> at UptoSkills — conducting vulnerability assessments and leading a cohort of security interns by managing attendance, evaluating deliverables, and assigning tasks.</p>
       <p class="about-p">I hold <strong>CEH v13</strong>, <strong>CRTOM</strong>, and <strong>CCEP</strong> credentials, bridging offensive Red Teaming and secure software development. Selected as a <strong>Master Trainer by CDAC Noida (MeitY, Government of India)</strong> under the ISEA Project Phase III to conduct cybersecurity awareness workshops across Rajasthan, MP, UP, and Delhi/NCR.</p>
-      <p class="about-p">On <strong>TryHackMe</strong> (username: Risank7714), I rank in the <strong>Top 2% globally</strong> — having completed the Pre Security Learning Path (19h 10m) and all 24 Advent of Cyber 2025 challenges. Scored <strong>93%</strong> in the Digital Personal Data Protection Act, 2023 examination.</p>
+      <p class="about-p">On <strong>TryHackMe</strong> (username: Risank7714), I rank in the <strong>Top 2% globally</strong> — having completed the Pre Security Learning Path (19h 10m). Scored <strong>93%</strong> in the Digital Personal Data Protection Act, 2023 examination.</p>
       <div class="edu-list">
         <div class="edu-card reveal"><div class="edu-yr">2024<br>—<br>2026</div><div><div class="edu-deg">Master of Computer Applications (MCA)</div><div class="edu-sch">Aishwarya College of Management &amp; Research Centre · BTU · Jodhpur</div></div></div>
         <div class="edu-card reveal"><div class="edu-yr">2018<br>—<br>2020</div><div><div class="edu-deg">Bachelor of Arts</div><div class="edu-sch">Jai Narain Vyas University · English Lit, Economics, Maths · Jodhpur</div></div></div>
@@ -508,9 +528,39 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 </div>
 </section>
 
-<section class="section section-alt" id="experience">
+<section class="section section-alt" id="methodology">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 03</span><h2 class="sec-title">Experience &amp; Leadership</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 03</span><h2 class="sec-title">My VAPT Methodology</h2><div class="sec-rule"></div></div>
+  <p class="about-p reveal" style="max-width:800px; margin-bottom:2.5rem;">I approach security assessments not just by executing tools, but by systematically tracking the <strong>Cyber Kill Chain</strong> and mapping vulnerabilities to the <strong>MITRE ATT&CK Framework</strong> to ensure defensive coverage and risk accuracy.</p>
+  
+  <div class="meth-grid">
+    <div class="meth-card reveal">
+      <div class="meth-num">01</div>
+      <h3 class="meth-title">Reconnaissance</h3>
+      <p class="meth-desc">Passive and active mapping. Identifying attack surfaces via OSINT, subdomains, port scanning (Nmap/Masscan), and technology fingerprinting to gather initial intelligence.</p>
+    </div>
+    <div class="meth-card reveal">
+      <div class="meth-num">02</div>
+      <h3 class="meth-title">Vulnerability Identification</h3>
+      <p class="meth-desc">Testing application inputs against the OWASP Testing Guide v4.2. Utilizing Burp Suite to uncover SQLi, XSS, and authentication bypass flaws.</p>
+    </div>
+    <div class="meth-card reveal">
+      <div class="meth-num">03</div>
+      <h3 class="meth-title">Exploitation &amp; Chaining</h3>
+      <p class="meth-desc">Manually verifying vulnerabilities with crafted payloads. Establishing multi-step attack chains (e.g., Auth Bypass + SQLi + Exfiltration) to demonstrate real-world impact.</p>
+    </div>
+    <div class="meth-card reveal">
+      <div class="meth-num">04</div>
+      <h3 class="meth-title">Reporting &amp; Remediation</h3>
+      <p class="meth-desc">Translating technical flaws into business risk. Providing CVSS v3.1 scores, risk matrices, and actionable secure coding fixes (e.g., parameterized queries, CSP).</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="experience">
+<div class="container">
+  <div class="sec-header"><span class="sec-num">// 04</span><h2 class="sec-title">Experience &amp; Leadership</h2><div class="sec-rule"></div></div>
   <div class="timeline">
 
     <div class="tl-card bl-blue reveal">
@@ -536,6 +586,18 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
       <div class="govt-badge">🏛️ CDAC Noida · Cert No: ISEA/AS/VMT2105/000111 · Issued: 22 May 2026</div>
     </div>
 
+    <div class="tl-card bl-purple reveal">
+      <div class="tl-node np"></div>
+      <div class="tl-top"><div><div class="tl-role">Cybersecurity and Ethical Hacking Intern</div><div class="tl-co-purple">Netrinix Academy</div></div><span class="tl-date">Mar 2026 – May 2026</span></div>
+      <span class="chip chip-intern">Internship</span>
+      <ul class="tl-bullets">
+        <li class="tl-bullet">Successfully completed projects in vulnerability assessment, penetration testing, and security analysis with an overall performance accuracy of 80%.</li>
+        <li class="tl-bullet">Executed six foundational mini-projects covering virtual cyber lab setup, Linux command-line challenges, network reconnaissance, and Python security scripting.</li>
+        <li class="tl-bullet">Conducted an advanced Web Application Penetration Test against DVWA utilizing OWASP Testing Guide v4.2 methodologies.</li>
+        <li class="tl-bullet">Documented a 6-step attack chain demonstrating complete database compromise and mapped findings to the MITRE ATT&CK framework.</li>
+      </ul>
+    </div>
+
     <div class="tl-card bl-amber reveal">
       <div class="tl-node na"></div>
       <div class="tl-top"><div><div class="tl-role">Team Leader — Hack Fiesta (SIH 2025 Internal Round)</div><div class="tl-co-amber">Aishwarya College ACMRC · Jodhpur</div></div><span class="tl-date">Sep 2025</span></div>
@@ -556,29 +618,28 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
       </ul>
     </div>
 
-    <div class="tl-card bl-purple reveal">
-      <div class="tl-node np"></div>
-      <div class="tl-top"><div><div class="tl-role">Cybersecurity Practitioner — Top 2% Global</div><div class="tl-co-purple">TryHackMe · Username: Risank7714</div></div><span class="tl-date">2024 – Present</span></div>
-      <span class="chip chip-thm">Practical Experience</span>
-      <ul class="tl-bullets">
-        <li class="tl-bullet">Ranked in the <strong>Top 2% globally</strong> on TryHackMe — consistent hands-on engagement with real-world cybersecurity challenges.</li>
-        <li class="tl-bullet">Completed <strong>Pre Security Learning Path</strong> (19h 10m) and all <strong>24 Advent of Cyber 2025</strong> challenges covering SQL injection, XSS, OSINT, forensics, log analysis, and incident response.</li>
-        <li class="tl-bullet">Also participated in the 2-Day Virtual Master Training on <strong>"Proactive Cybersecurity: Identifying Emerging Threats and Deploying Effective Defenses"</strong> — CDAC Noida, May 21–22, 2026.</li>
-      </ul>
-      <div class="thm-badge">🏆 TryHackMe Global Rank: <strong>Top 2%</strong> · Risank7714</div>
-    </div>
-
   </div>
 </div>
 </section>
 
-<section class="section" id="projects">
+<section class="section section-alt" id="projects">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 04</span><h2 class="sec-title">Featured Projects</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 05</span><h2 class="sec-title">Featured Projects</h2><div class="sec-rule"></div></div>
   <div class="proj-grid">
 
     <div class="proj-card reveal">
-      <div class="proj-id">PROJ_01 · MERN Stack · Full-Stack</div>
+      <div class="proj-id">PROJ_01 · Penetration Testing · Advanced Level</div>
+      <div class="proj-title">DVWA Web App Penetration Test</div>
+      <div class="proj-desc">Grey-box penetration test against Damn Vulnerable Web Application (DVWA) using Burp Suite Professional and OWASP Testing Guide v4.2 methodologies. Discovered five vulnerabilities including SQL Injection (CVSS 9.8) and Command Injection (CVSS 9.8), and demonstrated a multi-step attack chain leading to full database exfiltration.</div>
+      <div class="tag-row">
+        <span class="ptag">Burp Suite</span><span class="ptag">SQLi</span><span class="ptag">XSS</span>
+        <span class="ptag">Command Injection</span><span class="ptag">OWASP v4.2</span>
+      </div>
+      <a href="#" target="_blank" rel="noopener" class="proj-link">View Report →</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-id">PROJ_02 · MERN Stack · Full-Stack</div>
       <div class="proj-title">My Electroo ⚡ — MERN E-Commerce Platform</div>
       <div class="proj-desc">A full-featured, responsive e-commerce platform for the Indian electronics market. Features Indian Rupee (₹) localization, JWT authentication, BcryptJS password hashing, Multer image uploads, admin dashboard with CRUD, order management, shopping cart via React Context API, dynamic search &amp; category filters, and featured products grid.</div>
       <div class="tag-row">
@@ -590,7 +651,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-id">PROJ_02 · Python · Security Tools</div>
+      <div class="proj-id">PROJ_03 · Python · Security Tools</div>
       <div class="proj-title">Python Security Scripts Collection</div>
       <div class="proj-desc">4 Python security tools built without any external libraries: Port Scanner (TCP connect), Banner Grabber (SSL/TLS cert extraction + service identification + CVE version hints), Subdomain Checker (DNS resolution + HTTP probing + crt.sh CT logs), Password Strength Analyser (entropy, crack times, HaveIBeenPwned k-anonymity API, generator).</div>
       <div class="tag-row">
@@ -601,7 +662,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-id">PROJ_03 · VAPT · Reconnaissance</div>
+      <div class="proj-id">PROJ_04 · VAPT · Reconnaissance</div>
       <div class="proj-title">Full-Scope OSINT Reconnaissance Report</div>
       <div class="proj-desc">End-to-end passive &amp; active reconnaissance on an authorised practice target — subdomain discovery via crt.sh CT logs, tech fingerprinting (Wappalyzer, Netcraft), SSL/TLS grading (SSLLabs, SecurityHeaders.com), historical asset mapping via Wayback Machine, and Shodan/Censys infrastructure mapping. Produced a professional VAPT-style report.</div>
       <div class="tag-row">
@@ -611,24 +672,13 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
       <a href="https://github.com/Rishi7714/vapt-osint-recon-notes" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
     </div>
 
-    <div class="proj-card reveal">
-      <div class="proj-id">PROJ_04 · Web Security · Lab</div>
-      <div class="proj-title">Web Application Pentest Lab Setup</div>
-      <div class="proj-desc">Configured a complete intercept-proxy environment — CA certificate installation in Firefox, FoxyProxy browser routing, and Burp Suite Pro integration. Performed SQL Injection (6 PortSwigger labs: WHERE bypass, login bypass, UNION Oracle/MySQL, full DB enumeration) and XSS testing using XSStrike's intelligent context-aware payload engine.</div>
-      <div class="tag-row">
-        <span class="ptag">Burp Suite Pro</span><span class="ptag">XSStrike</span><span class="ptag">XSS</span>
-        <span class="ptag">SQL Injection</span><span class="ptag">PortSwigger</span><span class="ptag">FoxyProxy</span>
-      </div>
-      <a href="https://github.com/Rishi7714/vapt-osint-recon-notes" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
-    </div>
-
   </div>
 </div>
 </section>
 
-<section class="section section-alt" id="skills">
+<section class="section" id="skills">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 05</span><h2 class="sec-title">Technical Skills</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 06</span><h2 class="sec-title">Technical Skills</h2><div class="sec-rule"></div></div>
   <div class="skills-grid">
     <div class="sg reveal"><div class="sg-title">VAPT / Offensive Security</div><div class="pills"><span class="pill">SQL Injection</span><span class="pill">XSS Testing</span><span class="pill">Network Recon</span><span class="pill">OSINT</span><span class="pill">Port Scanning</span><span class="pill">Web App Testing</span><span class="pill">Vuln Assessment</span><span class="pill">System Hardening</span></div></div>
     <div class="sg reveal"><div class="sg-title">Security Tools</div><div class="pills"><span class="pill">Burp Suite Pro</span><span class="pill">Nmap</span><span class="pill">Masscan</span><span class="pill">theHarvester</span><span class="pill">XSStrike</span><span class="pill">Shodan</span><span class="pill">Censys</span><span class="pill">Wireshark</span><span class="pill">Metasploit</span><span class="pill">Kali Linux</span></div></div>
@@ -640,9 +690,9 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 </div>
 </section>
 
-<section class="section" id="credentials">
+<section class="section section-alt" id="credentials">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 06</span><h2 class="sec-title">Verified Credentials</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 07</span><h2 class="sec-title">Verified Credentials</h2><div class="sec-rule"></div></div>
   <div class="cred-filters" id="certFilters">
     <button class="cf-btn on" data-cat="All">All</button>
     <button class="cf-btn" data-cat="Security">Security</button>
@@ -657,25 +707,25 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 </div>
 </section>
 
-<section class="section section-alt" id="events">
+<section class="section" id="events">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 07</span><h2 class="sec-title">Events &amp; Activities</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 08</span><h2 class="sec-title">Events &amp; Activities</h2><div class="sec-rule"></div></div>
   <div class="events-grid">
     <div class="ev-card reveal"><span class="ev-chip chip-new">🇮🇳 MeitY · New</span><div class="ev-name">CDAC Master Trainer — ISEA Phase III</div><div class="ev-org">CDAC Noida · MeitY, Govt. of India</div><div class="ev-yr">Jun 2026 – Present · Cert: ISEA/AS/VMT2105/000111</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-new">🇮🇳 New · 93%</span><div class="ev-name">Digital Personal Data Protection Act, 2023</div><div class="ev-org">DPDPA.com · Scored 93% (Required: 85%)</div><div class="ev-yr">Jun 2, 2026</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-trainer2">Workshop</span><div class="ev-name">Proactive Cybersecurity — Virtual Master Training</div><div class="ev-org">CDAC Noida · ISEA Phase III · MeitY</div><div class="ev-yr">May 21–22, 2026</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-leader">Team Leader</span><div class="ev-name">SIH 2025 — Hack Fiesta Internal Round</div><div class="ev-org">ACMRC, Jodhpur · Team: Blue Tronix</div><div class="ev-yr">Sep 27, 2025</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-leader">Asst. Captain</span><div class="ev-name">VAPT Internship Cohort Lead</div><div class="ev-org">UptoSkills Cybersecurity Internship</div><div class="ev-yr">Mar – Jun 2026</div></div>
-    <div class="ev-card reveal"><span class="ev-chip chip-rank">Top 2% Global</span><div class="ev-name">TryHackMe Platform</div><div class="ev-org">Risank7714 · Pre Security + Advent of Cyber 2025</div><div class="ev-yr">2024 – Present</div></div>
+    <div class="ev-card reveal"><span class="ev-chip chip-rank">Top 2% Global</span><div class="ev-name">TryHackMe Platform</div><div class="ev-org">Risank7714 · Pre Security</div><div class="ev-yr">2024 – Present</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-part">Participant</span><div class="ev-name">RootCipher 2025 Cybersecurity Event</div><div class="ev-org">RootCipher &amp; Thunder Cipher — 2-Day Event</div><div class="ev-yr">2025</div></div>
     <div class="ev-card reveal"><span class="ev-chip chip-part">Participant</span><div class="ev-name">TATA Crucible Campus Quiz 2025</div><div class="ev-org">Tata Group — Unstop Platform</div><div class="ev-yr">2025</div></div>
   </div>
 </div>
 </section>
 
-<section class="section" id="contact">
+<section class="section section-alt" id="contact">
 <div class="container">
-  <div class="sec-header"><span class="sec-num">// 08</span><h2 class="sec-title">Initialize Connection</h2><div class="sec-rule"></div></div>
+  <div class="sec-header"><span class="sec-num">// 09</span><h2 class="sec-title">Initialize Connection</h2><div class="sec-rule"></div></div>
   <div class="contact-grid">
 
     <div class="reveal">
@@ -729,6 +779,10 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.61rem;color:#4d6888;}
 <script>
 (function(){
 
+/* ── EASTER EGG FLAG ── */
+console.log("%c[FLAG] VAPT{Source_Code_Inspection_Complete}", "color: #00e87a; font-size: 16px; font-weight: bold; font-family: monospace; border: 1px solid #00e87a; padding: 10px; border-radius: 5px;");
+console.log("%cGood eye. If you found this, we should definitely connect.", "color: #00ccff; font-size: 12px; font-family: monospace;");
+
 /* ── CERTS DATA ── */
 var CERTS = [
   {i:'🛡️',n:'Certified Ethical Hacker (CEH v13)',iss:'EC-Council',date:'April 2026',cat:'Security',top:true,verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
@@ -736,8 +790,7 @@ var CERTS = [
   {i:'🎓',n:'Certified Cybersecurity Educator Professional (CCEP)',iss:'Red Team Leaders',date:'Dec 3, 2025',cat:'Red Team',verify:'https://courses.redteamleaders.com/exam-completion/54c76fd9d5c405c1'},
   {i:'🇮🇳',n:'CDAC Master Trainer — ISEA Project Phase III',iss:'CDAC Noida · MeitY, Govt. of India',date:'May 22, 2026',cat:'Govt',top:true,score:'Cert No: ISEA/AS/VMT2105/000111',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
   {i:'📜',n:'Digital Personal Data Protection Act, 2023',iss:'DPDPA.com',date:'Jun 2, 2026',cat:'Govt',score:'Score: 93% (Required: 85%)',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
-  {i:'🔵',n:'Junior Cybersecurity Analyst Career Path',iss:'Cisco Networking Academy',date:'Aug 31, 2025',cat:'Security',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
-  {i:'🎄',n:'Advent of Cyber 2025 — 24/24 Challenges',iss:'TryHackMe · ID: THM-AUD2TWVLT8',date:'Jan 6, 2026',cat:'Security',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
+  {i:'🔵',n:'Junior Cybersecurity Analyst Career Path',iss:'Cisco Networking Academy',date:'Aug 31, 2025',cat:'Security', top:true,verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
   {i:'🔒',n:'Pre Security Learning Path (19h 10m)',iss:'TryHackMe · ID: THM-TSN1KOENPK',date:'Feb 22, 2026',cat:'Security',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
   {i:'🛰️',n:'ATAL FDP — Cyber Security & Digital Forensics',iss:'AICTE ATAL · Sardar Patel University',date:'Feb 3–8, 2025',cat:'Security',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
   {i:'🌐',n:'Introduction to Cybersecurity',iss:'Cisco Networking Academy',date:'May 6, 2025',cat:'Security',verify:'https://drive.google.com/drive/folders/1YOUR_FOLDER_ID'},
@@ -829,8 +882,7 @@ window.addEventListener('resize',resize);
 var counted=false;
 function runCounters(){
   if(counted)return; counted=true;
-  // Updated s4 counter to target 6 "Security Tools Built"
-  [['s1',17,'+'],['s2',7,''],['s3',24,''],['s4',6,'']].forEach(function(item){
+  [['s1',17,'+'],['s2',7,''],['s3',6,'']].forEach(function(item){
     var el=document.getElementById(item[0]);
     var target=item[1],suffix=item[2],cur=0;
     var step=Math.max(1,Math.ceil(target/40));
